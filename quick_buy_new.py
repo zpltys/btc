@@ -3,11 +3,10 @@ import time
 
 def getLowestPrice(symbol):
     k_line = get_kline(symbol, '1min')
-    startTimeStamp = k_line['data'][0]['id']
-    nowTimeStamp = time.time()
-    print(startTimeStamp)
-    print(nowTimeStamp)
-    return k_line['data'][0]['low']
+    if k_line['data'][0]['count'] > 3:
+        return k_line['data'][0]['low']
+    else:
+        return False
 
 def getLowestSell(symbol):
     depth = get_depth(symbol)
@@ -20,7 +19,7 @@ def getMoney(symbol):
         if b['currency'] == 'btc' and b['type'] == 'trade':
             return float(b['balance'])
 
-    print(balance['data'])
+    print(balance['data'] + 10)
 
 def buy(symbol, price, amount):
     send_order(amount, symbol, 'buy-limit', price)
@@ -37,13 +36,33 @@ def hasOpen(symbol):
             return True
     return False
 
+def quickBuy(symbol):
+    while True:
+        if hasOpen(symbol):
+            break
+
+    stillMoney = getMoney(symbol)
+    while stillMoney > 0.00006510:
+        lowPrice = getLowestPrice(symbol)
+        if not lowPrice:
+            continue
+        sellPair = getLowestSell(symbol)
+        need = sellPair[0] * sellPair[1]
+        if need < stillMoney:
+            buy(symbol, sellPair[0], sellPair[1])
+        else:
+            buy(symbol, sellPair[0], stillMoney / sellPair[0] - 0.5)
+
+        cancelAllOrder(symbol)
+        stillMoney = getMoney(symbol)
+
 if __name__ == "__main__":
     tradeName = 'iostbtc'
-    print(getLowestPrice(tradeName))
+    print(getLowestPrice(tradeName) + 1)
     print(getLowestSell(tradeName))
     print(getMoney(tradeName))
     print(hasOpen(tradeName))
-    print(hasOpen('lunbtc'))
+    print(getMoney(tradeName) + 1)
 
 
 
