@@ -53,7 +53,7 @@ def quickBuy(symbol):
         if need < stillMoney:
             buy(symbol, sellPair[0], sellPair[1])
         else:
-            print("amount:" + (stillMoney / sellPair[0]) - 0.0001)
+            print("amount:" + str((stillMoney / sellPair[0]) - 0.0001))
             buy(symbol, sellPair[0], (stillMoney / sellPair[0]) - 0.0001)
 
         cancelAllOrder(symbol)
