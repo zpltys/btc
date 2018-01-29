@@ -29,7 +29,7 @@ def get_kline(symbol, period, size=150):
 
 
 # 获取marketdepth
-def get_depth(symbol, type):
+def get_depth(symbol, type='step0'):
     """
     :param symbol
     :param type: 可选值：{ percent10, step0, step1, step2, step3, step4, step5 }
@@ -423,13 +423,15 @@ def margin_balance(symbol):
 
 
 if __name__ == '__main__':
-    print(get_symbols())
+    #print(get_symbols())
     #print(get_balance())
-    #print(get_kline('eosbtc', '1min'))
-    a = orders_list('eosbtc', 'submitted')
-    #a = json.loads(a)
-    orderId = a['data'][0]['id']
-    print("order id:" + str(a['data'][0]['id']))
+    print(get_kline('eosbtc', '1mon'))
+    #a = orders_list('eosbtc', 'submitted')
+    #orderId = a['data'][0]['id']
+    #print("order id:" + str(a['data'][0]['id']))
     # print(send_order(1, 'eosbtc', 'sell-limit', 1))
-    cancel_order(orderId)
+    #cancel_order(orderId)
+
+
+
     print("end")
