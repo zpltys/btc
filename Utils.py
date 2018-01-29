@@ -17,8 +17,8 @@ import requests
 
 # 此处填写APIKEY
 
-ACCESS_KEY = open('pub_key.txt').readline()
-SECRET_KEY = open('private_key.txt').readline()
+ACCESS_KEY = open('pub_key.txt').read()
+SECRET_KEY = open('private_key.txt').read()
 
 
 # API 请求地址
