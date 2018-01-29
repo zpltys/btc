@@ -26,8 +26,9 @@ def buy(symbol, price, amount):
     send_order(amount, symbol, 'buy-limit', price)
 
 def cancelAllOrder(symbol):
-    orders = orders_list(symbol, 'submitted')
-    print(orders)
+    orders = orders_list(symbol, 'submitted')['data']
+    for order in orders:
+        cancel_order(order['id'])
 
 if __name__ == "__main__":
     tradeName = 'iostbtc'
