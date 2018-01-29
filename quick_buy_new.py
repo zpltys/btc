@@ -22,6 +22,6 @@ if __name__ == "__main__":
     tradeName = 'eosbtc'
     print(getLowestPrice(tradeName))
     print(getLowestSell(tradeName))
-    buyAll()
+    buyAll(tradeName)
 
 
