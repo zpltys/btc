@@ -31,14 +31,19 @@ def cancelAllOrder(symbol):
         cancel_order(order['id'])
 
 def hasOpen(symbol):
-    return 1
+    symbols = get_symbols()['data']
+    for s in symbols:
+        if symbol == s['base-currency'] + s['quote-currency']:
+            return True
+    return False
 
 if __name__ == "__main__":
     tradeName = 'iostbtc'
     print(getLowestPrice(tradeName))
     print(getLowestSell(tradeName))
     print(getMoney(tradeName))
-    print(get_symbols())
+    print(hasOpen(tradeName))
+    print(hasOpen('lunbtc'))
 
 
 
