@@ -22,6 +22,9 @@ def getMoney(symbol):
     print(balance['data'] + 10)
 
 def buy(symbol, price, amount):
+    print("symbol:" + symbol)
+    print("price" + ":" + str(price))
+    print("amount:" + str(amount))
     send_order(amount, symbol, 'buy-limit', price)
 
 def cancelAllOrder(symbol):
