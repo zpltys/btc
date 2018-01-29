@@ -48,7 +48,7 @@ def quickBuy(symbol):
             continue
         sellPair = getLowestSell(symbol)
         need = sellPair[0] * sellPair[1]
-        print(need + ":" + str(need))
+        print("need" + ":" + str(need))
         print("still" + ":" + str(stillMoney))
         if need < stillMoney:
             buy(symbol, sellPair[0], sellPair[1])
