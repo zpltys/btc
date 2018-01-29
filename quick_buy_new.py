@@ -30,12 +30,15 @@ def cancelAllOrder(symbol):
     for order in orders:
         cancel_order(order['id'])
 
+def hasOpen(symbol):
+    return 1
+
 if __name__ == "__main__":
     tradeName = 'iostbtc'
     print(getLowestPrice(tradeName))
     print(getLowestSell(tradeName))
     print(getMoney(tradeName))
-    cancelAllOrder(tradeName)
+    print(get_symbols())
 
 
 
