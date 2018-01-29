@@ -16,7 +16,7 @@ def getLowestSell(symbol):
 def getMoney(symbol):
     balance = get_balance()['data']['list']
     for b in balance:
-        if b['currency'] == 'usdt' and b['type'] == 'trade':
+        if b['currency'] == 'btc' and b['type'] == 'trade':
             return float(b['balance'])
 
     print(balance['data'] + 10)
@@ -64,8 +64,8 @@ def quickBuy(symbol):
         stillMoney = getMoney(symbol)
 
 if __name__ == "__main__":
-    tradeName = 'iostusdt'
-    # quickBuy(tradeName)
-    buy(tradeName, 0.00708, 0.01)
+    tradeName = 'iostbtc'
+    quickBuy(tradeName)
+    #buy(tradeName, 0.00708, 0.01)
 
 
