@@ -34,7 +34,7 @@ if __name__ == "__main__":
     print(getLowestPrice(tradeName))
     print(getLowestSell(tradeName))
     print(getMoney(tradeName))
-    buy(tradeName, 0.00000002, 1)
+    cancel_order(tradeName)
 
 
 
