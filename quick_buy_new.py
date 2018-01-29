@@ -14,14 +14,18 @@ def getLowestSell(symbol):
     val = depth['tick']['asks'][0]
     return val
 
-def buyAll(symbol):
-    balance = get_balance()
-    print(balance)
+def getMoney(symbol):
+    balance = get_balance()['data']['list']
+    for b in balance:
+        if b['currency'] == 'btc' and b['type'] == 'trade':
+            return float(b['balance'])
+
+    print(balance['data'])
 
 if __name__ == "__main__":
     tradeName = 'eosbtc'
     print(getLowestPrice(tradeName))
     print(getLowestSell(tradeName))
-    buyAll(tradeName)
+    print(getMoney(tradeName))
 
 
