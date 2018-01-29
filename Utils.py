@@ -26,7 +26,7 @@ MARKET_URL = "https://api.huobi.pro"
 TRADE_URL = "https://api.huobi.pro"
 
 # 首次运行可通过get_accounts()获取acct_id,然后直接赋值,减少重复获取。
-ACCOUNT_ID = 1903137
+ACCOUNT_ID = None
 
 #'Timestamp': '2017-06-02T06:13:49'
 
