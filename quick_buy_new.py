@@ -42,7 +42,7 @@ def quickBuy(symbol):
             break
 
     stillMoney = getMoney(symbol)
-    while stillMoney > 0.00006510:
+    while stillMoney > 0.000006510:
         lowPrice = getLowestPrice(symbol)
         if not lowPrice:
             continue
@@ -58,11 +58,7 @@ def quickBuy(symbol):
 
 if __name__ == "__main__":
     tradeName = 'iostbtc'
-    print(getLowestPrice(tradeName) + 1)
-    print(getLowestSell(tradeName))
-    print(getMoney(tradeName))
-    print(hasOpen(tradeName))
-    print(getMoney(tradeName) + 1)
+    quickBuy(tradeName)
 
 
 
