@@ -65,7 +65,7 @@ def quickBuy(symbol):
 
 if __name__ == "__main__":
     tradeName = 'iostusdt'
-    quickBuy(tradeName)
-
+    # quickBuy(tradeName)
+    buy(tradeName, 0.00708, 0.01)
 
 
