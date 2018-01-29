@@ -16,7 +16,7 @@ def getLowestSell(symbol):
 def getMoney(symbol):
     balance = get_balance()['data']['list']
     for b in balance:
-        if b['currency'] == 'btc' and b['type'] == 'trade':
+        if b['currency'] == 'usdt' and b['type'] == 'trade':
             return float(b['balance'])
 
     print(balance['data'] + 10)
