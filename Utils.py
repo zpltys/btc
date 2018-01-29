@@ -18,8 +18,9 @@ import requests
 # 此处填写APIKEY
 
 ACCESS_KEY = open('pub_key.txt').read()
+print(ACCESS_KEY)
 SECRET_KEY = open('private_key.txt').read()
-
+print(SECRET_KEY)
 
 # API 请求地址
 MARKET_URL = "https://api.huobi.pro"
