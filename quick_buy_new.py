@@ -22,10 +22,15 @@ def getMoney(symbol):
 
     print(balance['data'])
 
+def buy(symbol, price, amount):
+    send_order(amount, symbol, 'buy-limit', price)
+
 if __name__ == "__main__":
-    tradeName = 'eosbtc'
+    tradeName = 'iostbtc'
     print(getLowestPrice(tradeName))
     print(getLowestSell(tradeName))
     print(getMoney(tradeName))
+    buy(tradeName, 0.00000001, 1)
+
 
 
