@@ -46,11 +46,16 @@ def quickBuy(symbol):
         print("not open " + symbol + " now!")
 
     stillMoney = getMoney(symbol)
-    while stillMoney > 0.000006510:
+    while stillMoney > 0.000006:
         lowPrice = getLowestPrice(symbol)
         if not lowPrice:
             continue
         sellPair = getLowestSell(symbol)
+        if sellPair[0] > lowPrice * 1.6:
+            print("lowPrice: " + str(lowPrice))
+            print("now price: " + str(sellPair[0]))
+            print("price too high!")
+            continue
         need = sellPair[0] * sellPair[1]
         print("need" + ":" + str(need))
         print("still" + ":" + str(stillMoney))
