@@ -43,7 +43,7 @@ def quickBuy(symbol):
     while True:
         if hasOpen(symbol):
             break
-        print("not open " + symbol + "now!")
+        print("not open " + symbol + " now!")
 
     stillMoney = getMoney(symbol)
     while stillMoney > 0.000006510:
