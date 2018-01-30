@@ -3,7 +3,9 @@ import time
 
 def getLowestPrice(symbol):
     k_line = get_kline(symbol, '1min')
-    if k_line['data'][0]['count'] > 3:
+    if len(k_line['data']) == 0:
+        return False
+    if k_line['data'][0]['count'] > 1:
         return k_line['data'][0]['low']
     else:
         return False
@@ -70,7 +72,7 @@ def quickBuy(symbol):
         stillMoney = getMoney(symbol)
 
 if __name__ == "__main__":
-    tradeName = 'lunbtc'
+    tradeName = 'ocnbtc'
     quickBuy(tradeName)
     #buy(tradeName, 0.00708, 0.01)
 
