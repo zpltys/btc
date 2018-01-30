@@ -43,6 +43,7 @@ def quickBuy(symbol):
     while True:
         if hasOpen(symbol):
             break
+        print("not open " + symbol + "now!")
 
     stillMoney = getMoney(symbol)
     while stillMoney > 0.000006510:
@@ -58,13 +59,13 @@ def quickBuy(symbol):
         else:
             amount = round(((stillMoney / sellPair[0]) * 0.95), 2) - 0.01
             print("amount:" + str(amount))
-            buy(symbol, sellPair[0], (amount))
+            buy(symbol, sellPair[0], amount)
 
         cancelAllOrder(symbol)
         stillMoney = getMoney(symbol)
 
 if __name__ == "__main__":
-    tradeName = 'iostbtc'
+    tradeName = 'lunbtc'
     quickBuy(tradeName)
     #buy(tradeName, 0.00708, 0.01)
 
